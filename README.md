@@ -73,6 +73,13 @@ SutraLang allows you to write Python code using Devanagari script with intuitive
 
 1.  Write your code using Sanskrit keywords (see [Full Documentation](Docs/DOCUMENTATION.md) for mappings).
 2.  Save the file with a `.skt` extension (e.g., `कार्यक्रमः.skt`).
+
+    *   **Example: "Hello, World!"**
+        To print "Hello, World!" in SutraLang, you would write:
+        ```sanskrit
+        छापय("🕉️✨नमस्ते विश्व!🌍") 
+        ```
+
 3.  **Run a file directly:**
     ```bash
     sutralang-run कार्यक्रमः.skt
