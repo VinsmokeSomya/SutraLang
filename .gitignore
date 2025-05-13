@@ -1,0 +1,26 @@
+# Python build artifacts and caches
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# IDE / Editor specific
+.vscode/
+.idea/
+
+# Test results and coverage reports
+.coverage
+.pytest_cache/
+htmlcov/
+
+# SutraPy specific (if any build outputs are not meant for version control)
+# e.g. if transpiled files are always put in a specific build_skt/ directory 

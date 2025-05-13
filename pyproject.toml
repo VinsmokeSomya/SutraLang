@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "SutraLang"
+version = "0.1.0"
+authors = [
+  { name="Vinsmoke Somya", email="you@example.com" },
+]
+description = "A transpiler for writing Python code using Sanskrit keywords."
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT License"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Compilers",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    # No external dependencies for now, but we can add them here later
+]
+
+[project.scripts]
+sutralang-run = "sutralang.sanskrit:main_cli"
+sutralang-transpile = "sutralang.sanskrit:transpile_cli"
+sutralang-console = "sutralang.repl:start_repl"
+
+[project.urls]
+"Homepage" = "https://github.com/VinsmokeSomya/SutraLang"
+"Bug Tracker" = "https://github.com/VinsmokeSomya/SutraLang/issues"
+
+# Explicitly tell setuptools which package to include
+[tool.setuptools]
+packages = ["sutralang"] 

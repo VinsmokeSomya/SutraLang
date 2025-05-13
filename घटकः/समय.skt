@@ -1,0 +1,179 @@
+# SutraPy Wrapper for Python's datetime module
+आयात datetime नाम्ना _समय
+
+# --- Constants ---
+न्यूनतम_वर्षः = _समय.MINYEAR
+अधिकतम_वर्षः = _समय.MAXYEAR
+
+# --- Functions for creating objects ---
+नियोग अद्यतनः():
+  """ वर्तमानं सम्पूर्णं कालं तिथिं च प्रतिददाति """
+  # (Returns the current complete date and time)
+  निर्वतनम् _समय.datetime.now()
+
+नियोग रचय_तिथिम्(वर्षः, मासः, दिनम्):
+  """ प्रदत्तैः वर्षमासदिनैः तिथिं रचयति """
+  # (Creates a date object with the given year, month, day)
+  निर्वतनम् _समय.date(वर्षः, मासः, दिनम्)
+
+नियोग रचय_कालम्(घण्टा=0, कला=0, विकला=0, सूक्ष्मकला=0):
+  """ प्रदत्तैः घण्टाकलाविकलादिभिः कालं रचयति """
+  # (Creates a time object with the given hour, minute, second, microsecond)
+  निर्वतनम् _समय.time(घण्टा, कला, विकला, सूक्ष्मकला)
+
+नियोग रचय_सम्पूर्णकालम्(वर्षः, मासः, दिनम्, घण्टा=0, कला=0, विकला=0, सूक्ष्मकला=0):
+  """ प्रदत्तैः वर्षमासदिनादिभिः सम्पूर्णकालं रचयति """
+  # (Creates a datetime object with the given year, month, day, hour, minute, second, microsecond)
+  निर्वतनम् _समय.datetime(वर्षः, मासः, दिनम्, घण्टा, कला, विकला, सूक्ष्मकला)
+
+# --- Function for formatting and parsing (operates on a datetime/date/time object or creates one) ---
+नियोग कालवस्तु_रूपणम्(कालवस्तु, स्वरूपसूत्रम्):
+  """ कालवस्तुनः स्वरूपसूत्रानुसारं अक्षरसमुच्चयम् प्रतिददाति """
+  # (Returns a string representing the datetime object according to the format string)
+  निर्वतनम् कालवस्तु.strftime(स्वरूपसूत्रम्)
+
+नियोग कालज्ञानम्_अक्षरशः(काल_अक्षरसमूहः, स्वरूपसूत्रम्):
+  """ अक्षरसमुच्चयात् स्वरूपसूत्रानुसारं सम्पूर्णकालं रचयति """
+  # (Creates a datetime object by parsing a string according to the format string)
+  निर्वतनम् _समय.datetime.strptime(काल_अक्षरसमूहः, स्वरूपसूत्रम्)
+
+# --- Timedelta function ---
+नियोग रचय_समयान्तरम्(दिनानि=0, विकलाः=0, सूक्ष्मकलाः=0, मिलिसूक्ष्मकलाः=0, कलाः=0, घण्टाः=0, सप्ताहाः=0):
+  """ समयान्तरं (timedelta) वस्तु रचयति """
+  # (Creates a timedelta object representing a duration)
+  निर्वतनम् _समय.timedelta(days=दिनानि, seconds=विकलाः, microseconds=सूक्ष्मकलाः, milliseconds=मिलिसूक्ष्मकलाः, minutes=कलाः, hours=घण्टाः, weeks=सप्ताहाः)
+
+# --- Functions for accessing components (operate on a datetime/date/time object) ---
+नियोग वर्षः_प्राप्नुहि(कालवस्तु):
+  """ कालवस्तुनः वर्षं प्रतिददाति """
+  निर्वतनम् कालवस्तु.year
+
+नियोग मासः_प्राप्नुहि(कालवस्तु):
+  """ कालवस्तुनः मासं प्रतिददाति """
+  निर्वतनम् कालवस्तु.month
+
+नियोग दिनम्_प्राप्नुहि(कालवस्तु):
+  """ कालवस्तुनः दिनं प्रतिददाति """
+  निर्वतनम् कालवस्तु.day
+
+नियोग घण्टा_प्राप्नुहि(कालवस्तु):
+  """ कालवस्तुनः घण्टाम् प्रतिददाति (सम्पूर्णकालात् कालाद् वा) """
+  निर्वतनम् कालवस्तु.hour
+
+नियोग कला_प्राप्नुहि(कालवस्तु):
+  """ कालवस्तुनः कलां प्रतिददाति (सम्पूर्णकालात् कालाद् वा) """
+  निर्वतनम् कालवस्तु.minute
+
+नियोग विकला_प्राप्नुहि(कालवस्तु):
+  """ कालवस्तुनः विकलां प्रतिददाति (सम्पूर्णकालात् कालाद् वा) """
+  निर्वतनम् कालवस्तु.second
+
+नियोग दिनसप्ताहः_प्राप्नुहि(कालवस्तु):
+  """ सप्ताहस्य दिनम् प्रतिददाति (सोमवासरः=0, रविवासरः=6) """
+  निर्वतनम् कालवस्तु.weekday()
+
+नियोग दिनवर्षस्य_प्राप्नुहि(कालवस्तु):
+  """ वर्षस्य दिनम् प्रतिददाति (1 तः 365/366) """
+  निर्वतनम् कालवस्तु.timetuple().tm_yday
+
+# --- New functions for datetime object manipulation and representation ---
+
+नियोग कालवस्तु_परिवर्तय(कालवस्तु, वर्षः=None, मासः=None, दिनम्=None, घण्टा=None, कला=None, विकला=None, सूक्ष्मकला=None, समयक्षेत्रम्=None):
+  """ कालवस्तुनः निर्दिष्टान् अंशान् परिवर्तयति, अपरिवर्तितान् अंशान् पूर्ववत् स्थापयति।
+  (Replaces specified parts of the datetime object, keeping others unchanged.)
+  वर्षः, मासः, दिनम्, घण्टा, कला, विकला, सूक्ष्मकला, समयक्षेत्रम् इत्येतेषां कोऽपि प्रदत्तः चेत् तदनुसारं परिवर्तनं भवति।
+  """
+  मूल_अंशाः = {
+    "year": कालवस्तु.year, "month": कालवस्तु.month, "day": कालवस्तु.day,
+    "hour": कालवस्तु.hour if hasattr(कालवस्तु, "hour") else 0,
+    "minute": कालवस्तु.minute if hasattr(कालवस्तु, "minute") else 0,
+    "second": कालवस्तु.second if hasattr(कालवस्तु, "second") else 0,
+    "microsecond": कालवस्तु.microsecond if hasattr(कालवस्तु, "microsecond") else 0,
+    "tzinfo": कालवस्तु.tzinfo if hasattr(कालवस्तु, "tzinfo") else None
+  }
+  
+  नवीन_अंशाः = {}
+  यदि वर्षः अस्ति नास्ति:
+    नवीन_अंशाः["year"] = मूल_अंशाः["year"]
+  अथ:
+    नवीन_अंशाः["year"] = वर्षः
+  
+  यदि मासः अस्ति नास्ति:
+    नवीन_अंशाः["month"] = मूल_अंशाः["month"]
+  अथ:
+    नवीन_अंशाः["month"] = मासः
+
+  यदि दिनम् अस्ति नास्ति:
+    नवीन_अंशाः["day"] = मूल_अंशाः["day"]
+  अथ:
+    नवीन_अंशाः["day"] = दिनम्
+
+  यदि घण्टा अस्ति नास्ति:
+    यदि "hour" in मूल_अंशाः:
+        नवीन_अंशाः["hour"] = मूल_अंशाः["hour"]
+  अथ:
+    नवीन_अंशाः["hour"] = घण्टा
+
+  यदि कला अस्ति नास्ति:
+    यदि "minute" in मूल_अंशाः:
+        नवीन_अंशाः["minute"] = मूल_अंशाः["minute"]
+  अथ:
+    नवीन_अंशाः["minute"] = कला
+  
+  यदि विकला अस्ति नास्ति:
+    यदि "second" in मूल_अंशाः:
+        नवीन_अंशाः["second"] = मूल_अंशाः["second"]
+  अथ:
+    नवीन_अंशाः["second"] = विकला
+
+  यदि सूक्ष्मकला अस्ति नास्ति:
+    यदि "microsecond" in मूल_अंशाः:
+        नवीन_अंशाः["microsecond"] = मूल_अंशाः["microsecond"]
+  अथ:
+    नवीन_अंशाः["microsecond"] = सूक्ष्मकला
+
+  यदि समयक्षेत्रम् अस्ति नास्ति:
+    यदि "tzinfo" in मूल_अंशाः:
+        नवीन_अंशाः["tzinfo"] = मूल_अंशाः["tzinfo"]
+  अथ:
+    नवीन_अंशाः["tzinfo"] = समयक्षेत्रम्
+  
+  # Remove parameters not applicable to the specific object type (date vs time vs datetime)
+  यदि न hasattr(कालवस्तु, "hour"): # date object
+      नवीन_अंशाः.pop("hour", None)
+      नवीन_अंशाः.pop("minute", None)
+      नवीन_अंशाः.pop("second", None)
+      नवीन_अंशाः.pop("microsecond", None)
+      नवीन_अंशाः.pop("tzinfo", None) # date objects don't take tzinfo in replace by default
+  अथयदि न hasattr(कालवस्तु, "year"): # time object
+      नवीन_अंशाः.pop("year", None)
+      नवीन_अंशाः.pop("month", None)
+      नवीन_अंशाः.pop("day", None)
+
+  निर्वतनम् कालवस्तु.replace(** नवीन_अंशाः)
+
+नियोग अन्तर्राष्ट्रिय_मानकस्वरूपम्(कालवस्तु, विभाजकः='T'):
+  """ सम्पूर्णकालं तिथिं वा अन्तर्राष्ट्रियमानकस्वरूपे (ISO 8601) प्रतिददाति।
+  (Returns the datetime or date object in ISO 8601 format.)
+  कालवस्तुना सह कालः चेत्, विभाजकः तिथि-कालयोः मध्ये प्रयुज्यते।
+  """
+  यदि hasattr(कालवस्तु, 'isoformat'):
+    # For date objects, isoformat doesn't take a separator argument
+    यदि न hasattr(कालवस्तु, 'hour'): 
+      निर्वतनम् कालवस्तु.isoformat()
+    अथ:
+      निर्वतनम् कालवस्तु.isoformat(sep=विभाजकः)
+  अथ:
+    विगर्हते TypeError("कालवस्तुना सह 'isoformat' विधिः नास्ति")
+
+नियोग अन्तर्राष्ट्रिय_दिनसप्ताहक्रमाङ्कः(कालवस्तु):
+  """ तिथ्याः अन्तर्राष्ट्रियमानकानुसारं सप्ताहस्य दिनक्रमाङ्कं प्रतिददाति (सोमवासरः=1, रविवासरः=7)।
+  (Returns the day of the week as an integer according to ISO standard, Monday=1, Sunday=7.)
+  """
+  यदि hasattr(कालवस्तु, 'isoweekday'):
+    निर्वतनम् कालवस्तु.isoweekday()
+  अथ:
+    विगर्हते TypeError("कालवस्तुना सह 'isoweekday' विधिः नास्ति")
+
+# टिप्पणी: आवश्यकतानुसार अधिकानि कार्याणि अत्र योजयितुं शक्यन्ते।
+# (Note: More functions can be added here as needed.) 

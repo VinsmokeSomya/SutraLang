@@ -1,0 +1,48 @@
+# SutraPy Wrapper for Python's random module
+
+# Import the real random module using an alias
+आयात random नाम्ना _यादृच्छिक
+
+# --- Functions ---
+
+नियोग बीजारोपणम्(बीजम्=नास्ति):
+  """ यादृच्छिक संख्या जनरेटरस्य आरम्भः करोति """
+  # (Initializes the random number generator)
+  यदि बीजम् अस्ति नास्ति:
+    _यादृच्छिक.seed()
+  अथ:
+    _यादृच्छिक.seed(बीजम्)
+
+नियोग यादृच्छिकम्():
+  """ 0.0 (सहितम्) तथा 1.0 (रहितम्) मध्ये एकं यादृच्छिकं फ्लोटिंग्-प्वाइण्ट् संख्यां प्रतिददाति """
+  # (Returns a random floating-point number between 0.0 (inclusive) and 1.0 (exclusive))
+  निर्वतनम् _यादृच्छिक.random()
+
+नियोग यादृच्छिक_पूर्णाङ्कः(क, ख):
+  """ क (सहितम्) तथा ख (सहितम्) मध्ये एकं यादृच्छिकं पूर्णाङ्कं प्रतिददाति """
+  # (Returns a random integer between a (inclusive) and b (inclusive))
+  निर्वतनम् _यादृच्छिक.randint(क, ख)
+
+नियोग चयनम्(अनुक्रमः):
+  """ एकस्मात् अरिक्त-अनुक्रमात् एकं यादृच्छिकं तत्त्वं प्रतिददाति """
+  # (Returns a random element from a non-empty sequence)
+  निर्वतनम् _यादृच्छिक.choice(अनुक्रमः)
+
+नियोग मिश्रणम्(अनुक्रमः):
+  """ अनुक्रमं स्थाने एव मिश्रयति """
+  # (Shuffles the sequence in place)
+  # निर्वतनम् नास्ति (Returns None)
+  _यादृच्छिक.shuffle(अनुक्रमः)
+
+नियोग समरूपम्(क, ख):
+  """ क (सहितम्) तथा ख (सहितम्) मध्ये एकं यादृच्छिकं फ्लोटिंग्-प्वाइण्ट् संख्यां प्रतिददाति """
+  # (Returns a random floating-point number between a (inclusive) and b (inclusive))
+  निर्वतनम् _यादृच्छिक.uniform(क, ख)
+
+नियोग प्रतिचयनम्(जनसंख्या, क):
+  """ जनसंख्या-अनुक्रमात् क-दीर्घतायाः एकां विशिष्टानां तत्त्वानां सूचीं प्रतिददाति """
+  # (Returns a list of k unique elements chosen from the population sequence)
+  निर्वतनम् _यादृच्छिक.sample(जनसंख्या, क)
+
+# टिप्पणी: आवश्यकतानुसार अधिकानि कार्याणि अत्र योजयितुं शक्यन्ते।
+# (Note: More functions can be added here as needed.) 
